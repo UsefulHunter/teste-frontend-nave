@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 const Login = () => (
   <div>
-    <h1>Fon</h1>
+    <h1>Login</h1>
   </div>
 )
 
