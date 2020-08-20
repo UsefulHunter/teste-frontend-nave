@@ -1,7 +1,8 @@
-import React from "react"
-//import { Link } from "gatsby"
+import React, { useState } from "react"
+import { navigate } from "gatsby"
 import styled from "styled-components"
 import NaveSVG from "../components/NaveSVG"
+import api from "../services/api"
 
 const Wrapper = styled.div`
   display: flex;
@@ -71,23 +72,67 @@ const FormButton = styled.button`
   margin-bottom: 40px;
 `
 
-const Login = () => (
-  <Wrapper>
-    <LoginContainer>
-      <Nave>
-        <NaveSVG />
-      </Nave>
-      <Form>
-        <Label>E-mail</Label>
-        <FormInput placeholder="E-mail" />
+const Login = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
-        <Label>Senha</Label>
-        <FormInput placeholder="Senha" />
+  const handleEmail = event => {
+    const email = event.target.value
+    setEmail(email)
+  }
 
-        <FormButton>Entrar</FormButton>
-      </Form>
-    </LoginContainer>
-  </Wrapper>
-)
+  const handlePassword = event => {
+    const password = event.target.value
+    setPassword(password)
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    api
+      .post("users/login", {
+        email: email,
+        password: password,
+      })
+      .then(response => {
+        localStorage.setItem("token", response.data.token)
+        navigate("/Home")
+      })
+      .catch(error => {
+        if (error.response) {
+          console.error("error.response: ", error.response)
+        }
+      })
+  }
+
+  return (
+    <Wrapper>
+      <LoginContainer>
+        <Nave>
+          <NaveSVG />
+        </Nave>
+        <Form onSubmit={handleSubmit}>
+          <Label>E-mail</Label>
+          <FormInput
+            value={email}
+            onChange={handleEmail}
+            type="text"
+            placeholder="E-mail"
+          />
+
+          <Label>Senha</Label>
+          <FormInput
+            value={password}
+            onChange={handlePassword}
+            type="password"
+            placeholder="Senha"
+          />
+
+          <FormButton type="submit">Entrar</FormButton>
+        </Form>
+      </LoginContainer>
+    </Wrapper>
+  )
+}
 
 export default Login
