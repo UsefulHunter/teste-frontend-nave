@@ -13,6 +13,7 @@ const HeaderContainer = styled.div`
 
 const Nave = styled.div`
   padding-top: 24px;
+  cursor: pointer;
 `
 
 const Logout = styled.a`
@@ -26,19 +27,23 @@ const Logout = styled.a`
   cursor: pointer;
 `
 
-const Header = () => {
-  const handleClick = () => {
-    navigate("/")
-  }
-
-  return (
-    <HeaderContainer>
-      <Nave>
-        <NaveSVGSmall />
-      </Nave>
-      <Logout onClick={handleClick}>Sair</Logout>
-    </HeaderContainer>
-  )
-}
+const Header = () => (
+  <HeaderContainer>
+    <Nave
+      onClick={() => {
+        navigate("/Home")
+      }}
+    >
+      <NaveSVGSmall />
+    </Nave>
+    <Logout
+      onClick={() => {
+        navigate("/")
+      }}
+    >
+      Sair
+    </Logout>
+  </HeaderContainer>
+)
 
 export default Header
