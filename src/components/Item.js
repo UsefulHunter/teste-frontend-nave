@@ -143,7 +143,6 @@ const DialogButtonSecondary = styled.button`
 `
 
 const ItemSingle = props => {
-  console.log("props inside ItemSingle", props)
   const [primaryAge, setPrimaryAge] = useState({})
   const [secondaryAge, setSecondaryAge] = useState({})
   const modalRef = useRef()
@@ -178,7 +177,6 @@ const ItemSingle = props => {
     }
   }
   const handleNavigate = id => {
-    console.log(id)
     navigate("/EditNaver", {
       state: { id },
     })
