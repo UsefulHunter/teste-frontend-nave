@@ -106,7 +106,7 @@ const Icon = styled.div`
   cursor: pointer;
 `
 
-const EditNaver = () => {
+const EditNaver = props => {
   const [name, setName] = useState("")
   const [jobRole, setJobRole] = useState("")
   const [date, setDate] = useState("")
@@ -114,29 +114,57 @@ const EditNaver = () => {
   const [project, setProject] = useState("")
   const [url, setUrl] = useState("")
   const feedbackRef = useRef()
-  const [id, setId] = useState("")
-
+  console.log(
+    "name: ",
+    name,
+    "jobRole: ",
+    jobRole,
+    "date: ",
+    date,
+    "admissionDate: ",
+    admissionDate,
+    "project: ",
+    project,
+    "url: ",
+    url
+  )
   const openFeedback = () => {
     feedbackRef.current.openFeedback()
   }
-  useEffect(() => {
-    console.log("id?", History.state)
 
-    return () => {
-      console.log("it work?")
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        let response = await api.get(`navers/${props.location.state.id}`)
+        console.log(response.data)
+        setName(response.data.name)
+        setJobRole(response.data.job_role)
+        setDate(response.data.birthdate)
+        setAdmissionDate(response.data.admission_date)
+        console.log(admissionDate)
+        console.log(dateFormatter(admissionDate))
+        setProject(response.data.project)
+        setUrl(response.data.url)
+      } catch (error) {
+        if (error.response) {
+          console.error("Error:", error.response)
+        }
+      }
     }
+    getUser()
   }, [])
-  const onSubmit = event => {
+  const onSubmit = async event => {
     event.preventDefault()
     try {
-      api.put(`navers/${id}`, {
+      await api.put(`navers/${props.location.state.id}`, {
         job_role: jobRole,
-        admission_date: admissionDate,
-        birthdate: date,
+        admission_date: dateFormatter(admissionDate),
+        birthdate: dateFormatter(date),
         project: project,
         name: name,
         url: url,
       })
+      console.log("WE DID IT REDDIT")
       openFeedback()
     } catch (error) {
       if (error.response) {
@@ -170,16 +198,17 @@ const EditNaver = () => {
                 onChange={event => setName(event.target.value)}
                 value={name}
                 placeholder="Nome"
+                required
               />
             </InputItem>
             <InputItem>
               <Label value="Cargo" />
               <Input
                 name="JobRole"
-                type="text"
                 onChange={event => setJobRole(event.target.value)}
                 value={jobRole}
                 placeholder="Cargo"
+                required
               />
             </InputItem>
           </InputRow>
@@ -188,22 +217,22 @@ const EditNaver = () => {
               <Label value="Idade" />
               <Input
                 name="Date"
-                type="date"
                 value={date}
-                onChange={event => setDate(dateFormatter(event.target.value))}
+                type="date"
+                onChange={event => setDate(event.target.value)}
                 placeholder="Idade"
+                disabled
               />
             </InputItem>
             <InputItem>
               <Label value="Tempo de Empresa" />
               <Input
                 name="AdmissionDate"
-                type="date"
                 value={admissionDate}
-                onChange={event =>
-                  setAdmissionDate(dateFormatter(event.target.value))
-                }
+                type="date"
+                onChange={event => setAdmissionDate(event.target.value)}
                 placeholder="Tempo de empresa"
+                disabled
               />
             </InputItem>
           </InputRow>

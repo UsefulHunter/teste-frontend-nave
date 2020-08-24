@@ -177,6 +177,12 @@ const ItemSingle = props => {
       }
     }
   }
+  const handleNavigate = id => {
+    console.log(id)
+    navigate("/EditNaver", {
+      state: { id },
+    })
+  }
 
   useEffect(() => {
     setPrimaryAge(getAge(props.data.birthdate))
@@ -192,14 +198,7 @@ const ItemSingle = props => {
         <Icon onClick={openDialog}>
           <TrashSVG />
         </Icon>
-        <Icon
-          onClick={() => {
-            console.log(id)
-            navigate("/EditNaver", {
-              state: { id },
-            })
-          }}
-        >
+        <Icon onClick={() => handleNavigate(props.data.id)}>
           <PenSVG />
         </Icon>
       </ItemIconContainer>
@@ -210,12 +209,12 @@ const ItemSingle = props => {
             <ModalTitle>{props.data.name}</ModalTitle>
             <ItemText>{props.data.job_role}</ItemText>
             <ItemSubtitle>Idade</ItemSubtitle>
-            <ItemText>{primaryAge.age}</ItemText>
+            <ItemText>{primaryAge.year}</ItemText>
             <ItemSubtitle>Tempo de empresa</ItemSubtitle>
             <ItemText>
-              {secondaryAge.age === 0
+              {secondaryAge.year === 0
                 ? `${secondaryAge.month} mes(es)`
-                : `${secondaryAge.age} ano(s), ${secondaryAge.month} mes(es)`}
+                : `${secondaryAge.year} ano(s), ${secondaryAge.month} mes(es)`}
             </ItemText>
             <ItemSubtitle>Projetos que participou</ItemSubtitle>
             <ItemText>{props.data.project}</ItemText>
@@ -223,14 +222,7 @@ const ItemSingle = props => {
               <Icon onClick={openDialog}>
                 <TrashSVG />
               </Icon>
-              <Icon
-                onClick={() => {
-                  console.log(id)
-                  navigate("/EditNaver", {
-                    state: id,
-                  })
-                }}
-              >
+              <Icon onClick={() => handleNavigate(props.data.id)}>
                 <PenSVG />
               </Icon>
             </ModalIconContainer>
