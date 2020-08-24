@@ -114,7 +114,7 @@ const EditNaver = props => {
   const [project, setProject] = useState("")
   const [url, setUrl] = useState("")
   const feedbackRef = useRef()
-
+  const [id] = useState(props?.location?.state?.id)
   const openFeedback = () => {
     feedbackRef.current.openFeedback()
   }
@@ -122,7 +122,7 @@ const EditNaver = props => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        let response = await api.get(`navers/${props.location.state.id}`)
+        let response = await api.get(`navers/${id}`)
         setName(response.data.name)
         setJobRole(response.data.job_role)
         setDate(response.data.birthdate)
@@ -136,7 +136,7 @@ const EditNaver = props => {
       }
     }
     getUser()
-  }, [props.location.state.id])
+  }, [id])
 
   const onSubmit = async event => {
     event.preventDefault()
