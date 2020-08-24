@@ -4,7 +4,7 @@ import api from "../../services/api"
 import Header from "../../components/Header"
 import ItemSingle from "../../components/Item"
 import styled from "styled-components"
-
+import { colors } from "../../utils/Colors"
 const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@ const Title = styled.h1`
   line-height: 48px;
   display: flex;
   align-items: center;
-  color: #212121;
+  color: ${colors.mediumBlack};
 
   @media (max-width: 768px) {
     font-size: 58px;
@@ -39,8 +39,8 @@ const Title = styled.h1`
 `
 
 const Button = styled.button`
-  background-color: #212121;
-  color: #ffffff;
+  background-color: ${colors.mediumBlack};
+  color: ${colors.white};
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;

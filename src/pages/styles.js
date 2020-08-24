@@ -1,5 +1,5 @@
 import styled from "styled-components"
-
+import { colors } from "../utils/Colors"
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -32,7 +32,7 @@ export const Label = styled.label`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-  color: #212121;
+  color: ${colors.mediumBlack};
   margin-left: 32px;
   margin-bottom: 4px;
 `
@@ -42,7 +42,7 @@ export const FormInput = styled.input`
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-  color: #9e9e9e;
+  color: ${colors.lightGray};
   height: 40px;
   margin-left: 32px;
   padding-left: 8px;
@@ -51,7 +51,7 @@ export const FormInput = styled.input`
 `
 
 export const FormButton = styled.button`
-  background-color: #212121;
+  background-color: ${colors.mediumBlack};
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
@@ -61,7 +61,7 @@ export const FormButton = styled.button`
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #ffffff;
+  color: ${colors.white};
   height: 40px;
   margin-left: 32px;
   margin-right: 32px;

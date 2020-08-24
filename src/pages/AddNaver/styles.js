@@ -29,7 +29,7 @@ export const Title = styled.h1`
   font-weight: 600;
   font-size: 24px;
   line-height: 36px;
-  color: #212121;
+  color: ${colors.mediumBlack};
 `
 export const ContentWrapper = styled.div`
   display: flex;
@@ -68,8 +68,8 @@ export const InputItem = styled.div`
   }
 `
 export const FormButton = styled.button`
-  background-color: #212121;
-  color: #ffffff;
+  background-color: ${colors.mediumBlack};
+  color: ${colors.white};
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
