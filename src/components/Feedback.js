@@ -1,4 +1,5 @@
 import React, { useState, useImperativeHandle, forwardRef } from "react"
+import { navigate } from "gatsby"
 import styled from "styled-components"
 import CloseSVG from "./CloseSVG"
 
@@ -59,8 +60,9 @@ const Feedback = forwardRef((props, ref) => {
   }
 
   const close = () => {
+    console.log(window.location)
     setDisplay(false)
-    document.location.reload()
+    navigate("/Home/")
   }
 
   if (display) {
