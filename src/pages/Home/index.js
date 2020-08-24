@@ -72,7 +72,6 @@ const Home = () => {
       try {
         let responseData = await api.get("navers")
         setItems(responseData.data)
-        console.log(items)
       } catch (error) {
         if (error.response) {
           console.error("error.response: ", error.response)

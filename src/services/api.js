@@ -1,18 +1,8 @@
 import axios from "axios"
 
-const token = window.localStorage.getItem("token")
-
-/*axios.interceptors.request.use(
-  config => {
-    config.headers["Authorization"] = "Bearer " + token
-    config.headers["Content-Type"] = "application/json"
-    console.log("token", token)
-    return config
-  },
-  error => {
-    Promise.reject(error)
-  }
-)*/
+if (typeof window !== "undefined") {
+  const token = window.localStorage.getItem("token")
+}
 
 axios.defaults.headers.common["Authorization"] = "Bearer " + token
 

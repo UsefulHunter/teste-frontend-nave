@@ -7,6 +7,7 @@ import PenSVG from "./PenSVG"
 import Modal from "./Modal"
 import Dialog from "./Dialog"
 import Feedback from "./Feedback"
+import { getAge } from "../utils/DateFormatter"
 
 const Item = styled.div`
   display: flex;
@@ -174,23 +175,6 @@ const ItemSingle = props => {
         console.error(error.response)
       }
     }
-  }
-
-  const getAge = date => {
-    if (date === null) {
-      return "Birthdate is Null"
-    }
-    let today = new Date()
-    let birthDate = new Date(date)
-    let age = today.getFullYear() - birthDate.getFullYear()
-    let month = today.getMonth() - birthDate.getMonth()
-    if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
-      age = age - 1
-    }
-    if (month < 0) {
-      month = month + 12
-    }
-    return { age, month }
   }
 
   useEffect(() => {

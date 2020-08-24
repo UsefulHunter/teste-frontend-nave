@@ -95,7 +95,8 @@ const Login = () => {
         password: password,
       })
       .then(response => {
-        window.localStorage.setItem("token", response.data.token)
+        typeof window !== "undefined" &&
+          window.localStorage.setItem("token", response.data.token)
         navigate("/Home")
       })
       .catch(error => {

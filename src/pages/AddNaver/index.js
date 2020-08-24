@@ -114,7 +114,6 @@ const AddNaver = () => {
   const [project, setProject] = useState("")
   const [url, setUrl] = useState("")
   const feedbackRef = useRef()
-  console.log(name, jobRole, date, admissionDate, project, url)
 
   const openFeedback = () => {
     feedbackRef.current.openFeedback()
