@@ -149,6 +149,7 @@ const ItemSingle = props => {
   const modalRef = useRef()
   const dialogRef = useRef()
   const feedbackRef = useRef()
+  const id = props.data.id
 
   const openModal = () => {
     modalRef.current.openModal()
@@ -191,7 +192,14 @@ const ItemSingle = props => {
         <Icon onClick={openDialog}>
           <TrashSVG />
         </Icon>
-        <Icon>
+        <Icon
+          onClick={() => {
+            console.log(id)
+            navigate("/EditNaver", {
+              state: { id },
+            })
+          }}
+        >
           <PenSVG />
         </Icon>
       </ItemIconContainer>
@@ -215,7 +223,14 @@ const ItemSingle = props => {
               <Icon onClick={openDialog}>
                 <TrashSVG />
               </Icon>
-              <Icon>
+              <Icon
+                onClick={() => {
+                  console.log(id)
+                  navigate("/EditNaver", {
+                    state: id,
+                  })
+                }}
+              >
                 <PenSVG />
               </Icon>
             </ModalIconContainer>
