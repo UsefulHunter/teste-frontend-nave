@@ -167,7 +167,6 @@ const ItemSingle = props => {
 
   const handleDelete = async () => {
     try {
-      console.log("Id:", props.data.id)
       await api.delete(`navers/${props.data.id}`)
       openFeedback()
     } catch (error) {
