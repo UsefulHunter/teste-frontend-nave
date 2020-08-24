@@ -3,6 +3,7 @@ import { navigate } from "gatsby"
 import styled from "styled-components"
 import NaveSVG from "../components/NaveSVG"
 import api from "../services/api"
+import { Helmet } from "react-helmet"
 
 const Wrapper = styled.div`
   display: flex;
@@ -108,6 +109,10 @@ const Login = () => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <meta chatSet="utf-8" />
+        <title>Frontend Challenge</title>
+      </Helmet>
       <LoginContainer>
         <Nave>
           <NaveSVG />

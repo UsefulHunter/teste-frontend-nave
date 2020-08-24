@@ -114,20 +114,7 @@ const EditNaver = props => {
   const [project, setProject] = useState("")
   const [url, setUrl] = useState("")
   const feedbackRef = useRef()
-  console.log(
-    "name: ",
-    name,
-    "jobRole: ",
-    jobRole,
-    "date: ",
-    date,
-    "admissionDate: ",
-    admissionDate,
-    "project: ",
-    project,
-    "url: ",
-    url
-  )
+  const [id] = useState(props?.location?.state?.id)
   const openFeedback = () => {
     feedbackRef.current.openFeedback()
   }
@@ -135,14 +122,11 @@ const EditNaver = props => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        let response = await api.get(`navers/${props.location.state.id}`)
-        console.log(response.data)
+        let response = await api.get(`navers/${id}`)
         setName(response.data.name)
         setJobRole(response.data.job_role)
         setDate(response.data.birthdate)
         setAdmissionDate(response.data.admission_date)
-        console.log(admissionDate)
-        console.log(dateFormatter(admissionDate))
         setProject(response.data.project)
         setUrl(response.data.url)
       } catch (error) {
@@ -152,7 +136,8 @@ const EditNaver = props => {
       }
     }
     getUser()
-  }, [])
+  }, [id])
+
   const onSubmit = async event => {
     event.preventDefault()
     try {
@@ -164,7 +149,6 @@ const EditNaver = props => {
         name: name,
         url: url,
       })
-      console.log("WE DID IT REDDIT")
       openFeedback()
     } catch (error) {
       if (error.response) {
