@@ -1,6 +1,6 @@
 import axios from "axios"
 const token =
-  typeof window !== `undefined` ? window.localStorage.getItem("token") : null
+  typeof window !== undefined ? window.localStorage.getItem("token") : null
 
 axios.defaults.headers.common["Authorization"] = "Bearer " + token
 
