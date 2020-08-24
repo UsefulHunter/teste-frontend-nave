@@ -12,8 +12,20 @@ const InputField = styled.input`
   font-size: 16px;
   line-height: 24px;
   color: #9e9e9e;
+
+  ::invalid {
+    border: 1px solid red;
+  }
 `
 
-const Input = props => <InputField placeholder={props.placeholder} />
+const Input = props => (
+  <InputField
+    placeholder={props.placeholder}
+    onChange={props.onChange}
+    name={props.name}
+    type={props.type}
+    required
+  />
+)
 
 export default Input
