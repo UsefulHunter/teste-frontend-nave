@@ -1,17 +1,19 @@
 import React from "react"
-import NaveSVG from "./NaveSVG"
+import NaveSVGSmall from "./NaveSVGSmall"
 import styled from "styled-components"
+import { navigate } from "gatsby"
 
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 40px;
 `
 
 const Nave = styled.div`
-  max-height: 40px;
   padding-top: 24px;
+  cursor: pointer;
 `
 
 const Logout = styled.a`
@@ -22,18 +24,26 @@ const Logout = styled.a`
   line-height: 24px;
   color: #000;
   padding-top: 24px;
-  margin-right: 32px;
+  cursor: pointer;
 `
 
-const Header = () => {
-  return (
-    <HeaderContainer>
-      <Nave>
-        <NaveSVG />
-      </Nave>
-      <Logout>Sair</Logout>
-    </HeaderContainer>
-  )
-}
+const Header = () => (
+  <HeaderContainer>
+    <Nave
+      onClick={() => {
+        navigate("/Home")
+      }}
+    >
+      <NaveSVGSmall />
+    </Nave>
+    <Logout
+      onClick={() => {
+        navigate("/")
+      }}
+    >
+      Sair
+    </Logout>
+  </HeaderContainer>
+)
 
 export default Header
