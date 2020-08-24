@@ -11,7 +11,7 @@ const InputField = styled.input`
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-  color: #9e9e9e;
+  color: #212121;
 
   ::invalid {
     border: 1px solid red;
@@ -23,8 +23,9 @@ const Input = props => (
     placeholder={props.placeholder}
     onChange={props.onChange}
     name={props.name}
+    value={props.value}
     type={props.type}
-    required
+    disabled={props.disabled}
   />
 )
 

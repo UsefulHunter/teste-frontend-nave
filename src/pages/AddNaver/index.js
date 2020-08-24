@@ -119,10 +119,10 @@ const AddNaver = () => {
     feedbackRef.current.openFeedback()
   }
 
-  const onSubmit = event => {
+  const onSubmit = async event => {
     event.preventDefault()
     try {
-      api.post("navers", {
+      await api.post("navers", {
         job_role: jobRole,
         admission_date: admissionDate,
         birthdate: date,

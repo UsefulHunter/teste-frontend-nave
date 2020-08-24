@@ -1,8 +1,6 @@
 import axios from "axios"
-let token = ""
-if (typeof window !== undefined) {
-  token = window.localStorage.getItem("token")
-}
+const token =
+  typeof window !== `undefined` ? window.localStorage.getItem("token") : null
 
 axios.defaults.headers.common["Authorization"] = "Bearer " + token
 
