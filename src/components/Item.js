@@ -148,19 +148,16 @@ const ItemSingle = props => {
   const modalRef = useRef()
   const dialogRef = useRef()
   const feedbackRef = useRef()
-  const id = props.data.id
 
   const openModal = () => {
     modalRef.current.openModal()
   }
-
   const openDialog = () => {
     dialogRef.current.openDialog()
   }
   const closeDialog = () => {
     dialogRef.current.close()
   }
-
   const openFeedback = () => {
     dialogRef.current.close()
     feedbackRef.current.openFeedback()
@@ -185,7 +182,7 @@ const ItemSingle = props => {
   useEffect(() => {
     setPrimaryAge(getAge(props.data.birthdate))
     setSecondaryAge(getAge(props.data.admission_date))
-  }, [])
+  }, [props.data.birthdate, props.data.admission_date])
 
   return (
     <Item>

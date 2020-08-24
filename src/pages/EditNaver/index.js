@@ -136,7 +136,8 @@ const EditNaver = props => {
       }
     }
     getUser()
-  }, [])
+  }, [props.location.state.id])
+
   const onSubmit = async event => {
     event.preventDefault()
     try {
