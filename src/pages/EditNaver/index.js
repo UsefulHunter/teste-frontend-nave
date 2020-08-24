@@ -120,9 +120,8 @@ const EditNaver = () => {
     feedbackRef.current.openFeedback()
   }
   useEffect(() => {
-    if (typeof window !== undefined) {
-      console.log("id?", window.location)
-    }
+    console.log("id?", History.state)
+
     return () => {
       console.log("it work?")
     }
