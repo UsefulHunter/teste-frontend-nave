@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
+import { Helmet } from "react-helmet"
 import api from "../../services/api"
 import Header from "../../components/Header"
 import styled from "styled-components"
@@ -159,6 +160,10 @@ const EditNaver = props => {
 
   return (
     <EditNaverContainer>
+      <Helmet>
+        <meta chatSet="utf-8" />
+        <title>Edit Page</title>
+      </Helmet>
       <Header />
       <ContentWrapper>
         <FormContainer onSubmit={onSubmit}>

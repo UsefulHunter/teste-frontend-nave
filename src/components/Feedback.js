@@ -1,6 +1,7 @@
 import React, { useState, useImperativeHandle, forwardRef } from "react"
 import styled from "styled-components"
 import CloseSVG from "./CloseSVG"
+import { navigate } from "gatsby"
 
 const FeedbackWrapper = styled.div`
   position: fixed;
@@ -60,7 +61,7 @@ const Feedback = forwardRef((props, ref) => {
 
   const close = () => {
     setDisplay(false)
-    document.location.reload()
+    navigate("/Home")
   }
 
   if (display) {
