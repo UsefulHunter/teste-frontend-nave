@@ -1,6 +1,6 @@
 import axios from "axios"
 let token = ""
-if (typeof window !== "undefined") {
+if (typeof window !== undefined) {
   token = window.localStorage.getItem("token")
 }
 
