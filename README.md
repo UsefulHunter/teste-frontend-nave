@@ -30,3 +30,14 @@ Running the project:
   - `$ yarn globall add gatsby-cli` (to install the gastby client)
   - `$ yarn install`
   - `$ gatsby develop`
+
+Testing the project: 
+
+- Using Cypress: 
+
+  - requirements: 
+     - cypress
+  - `$ yarn`
+  - `$ yarn add cypress start-server-and-test --dev`
+  - `$ yarn run test:e2e`
+  
