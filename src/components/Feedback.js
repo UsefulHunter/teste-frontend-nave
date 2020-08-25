@@ -33,7 +33,7 @@ const Feedback = forwardRef((props, ref) => {
       <Wrapper>
         <Backdrop onClick={close} />
         <FeedbackBox>
-          <CloseIcon onClick={close}>
+          <CloseIcon id="closeIcon" onClick={close}>
             <CloseSVG />
           </CloseIcon>
           {props.children}
