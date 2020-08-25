@@ -14,7 +14,11 @@ export const dateDeformatter = date => {
   const year = dateToBeFormatted.getFullYear()
   let dateFormatted = ""
   dateFormatted = `${year}-${month + 1}-${day}`
-  if (month + 1 < 10) {
+  if (month + 1 < 10 && day < 10) {
+    dateFormatted = `${year}-0${month + 1}-0${day}`
+  } else if (month + 1 > 10 && day < 10) {
+    dateFormatted = `${year}-${month + 1}-0${day}`
+  } else if (month + 1 < 10 && day < 10) {
     dateFormatted = `${year}-0${month + 1}-${day}`
   }
   return dateFormatted
