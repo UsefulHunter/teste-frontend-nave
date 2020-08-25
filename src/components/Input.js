@@ -9,7 +9,7 @@ const Input = props => (
     value={props.value}
     type={props.type}
     disabled={props.disabled}
-    required
+    required={true}
   />
 )
 

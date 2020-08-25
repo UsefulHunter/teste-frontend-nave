@@ -96,7 +96,6 @@ const EditNaver = props => {
                 onChange={event => setName(event.target.value)}
                 value={name}
                 placeholder="Nome"
-                required
               />
             </InputItem>
             <InputItem>
@@ -106,7 +105,6 @@ const EditNaver = props => {
                 onChange={event => setJobRole(event.target.value)}
                 value={jobRole}
                 placeholder="Cargo"
-                required
               />
             </InputItem>
           </InputRow>
@@ -119,7 +117,6 @@ const EditNaver = props => {
                 type="date"
                 onChange={event => setDate(event.target.value)}
                 placeholder="Idade"
-                required
               />
             </InputItem>
             <InputItem>
@@ -130,7 +127,6 @@ const EditNaver = props => {
                 type="date"
                 onChange={event => setAdmissionDate(event.target.value)}
                 placeholder="Tempo de empresa"
-                required
               />
             </InputItem>
           </InputRow>
@@ -143,7 +139,6 @@ const EditNaver = props => {
                 value={project}
                 onChange={event => setProject(event.target.value)}
                 placeholder="Projetos que participou"
-                required
               />
             </InputItem>
             <InputItem>
@@ -154,7 +149,6 @@ const EditNaver = props => {
                 value={url}
                 onChange={event => setUrl(event.target.value)}
                 placeholder="URL da foto do Naver"
-                required
               />
             </InputItem>
           </InputRow>
