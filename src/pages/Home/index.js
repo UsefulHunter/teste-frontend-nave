@@ -36,7 +36,9 @@ const Home = () => {
       <Header />
       <TitleWrapper>
         <Title>Navers</Title>
-        <Button onClick={handleNavigation}>Adicionar Naver</Button>
+        <Button id="addButton" onClick={handleNavigation}>
+          Adicionar Naver
+        </Button>
       </TitleWrapper>
       <ItemArea>
         {items.map(item => {

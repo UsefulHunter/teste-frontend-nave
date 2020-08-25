@@ -91,6 +91,7 @@ const EditNaver = props => {
             <InputItem>
               <Label value="Nome" />
               <Input
+                id="name"
                 name="Name"
                 type="text"
                 onChange={event => setName(event.target.value)}
@@ -101,6 +102,7 @@ const EditNaver = props => {
             <InputItem>
               <Label value="Cargo" />
               <Input
+                id="jobRole"
                 name="JobRole"
                 onChange={event => setJobRole(event.target.value)}
                 value={jobRole}
@@ -112,6 +114,7 @@ const EditNaver = props => {
             <InputItem>
               <Label value="Idade" />
               <Input
+                id="date"
                 name="Date"
                 value={date}
                 type="date"
@@ -122,6 +125,7 @@ const EditNaver = props => {
             <InputItem>
               <Label value="Tempo de Empresa" />
               <Input
+                id="admissionDate"
                 name="AdmissionDate"
                 value={admissionDate}
                 type="date"
@@ -134,6 +138,7 @@ const EditNaver = props => {
             <InputItem>
               <Label value="Projetos" />
               <Input
+                id="project"
                 name="Project"
                 type="text"
                 value={project}
@@ -144,6 +149,7 @@ const EditNaver = props => {
             <InputItem>
               <Label value="URL da foto do Naver" />
               <Input
+                id="url"
                 name="Url"
                 type="url"
                 value={url}
@@ -152,7 +158,9 @@ const EditNaver = props => {
               />
             </InputItem>
           </InputRow>
-          <FormButton type="submit">Salvar</FormButton>
+          <FormButton id="submitButton" type="submit">
+            Salvar
+          </FormButton>
         </FormContainer>
       </ContentWrapper>
       <Feedback ref={feedbackRef}>

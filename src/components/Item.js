@@ -70,7 +70,9 @@ const ItemSingle = props => {
   return (
     <Item>
       <ItemImg onClick={openModal} src={props.data.url} />
-      <ItemTitle onClick={openModal}>{props.data.name}</ItemTitle>
+      <ItemTitle id="itemTitle" onClick={openModal}>
+        {props.data.name}
+      </ItemTitle>
       <ItemText>{props.data.job_role}</ItemText>
       <ItemIconContainer>
         <Icon onClick={openDialog}>
@@ -97,10 +99,10 @@ const ItemSingle = props => {
             <ItemSubtitle>Projetos que participou</ItemSubtitle>
             <ItemText>{props.data.project}</ItemText>
             <ModalIconContainer>
-              <Icon onClick={openDialog}>
+              <Icon id="deleteIcon" onClick={openDialog}>
                 <TrashSVG />
               </Icon>
-              <Icon onClick={() => handleNavigate(props.data.id)}>
+              <Icon id="editIcon" onClick={() => handleNavigate(props.data.id)}>
                 <PenSVG />
               </Icon>
             </ModalIconContainer>
@@ -114,7 +116,7 @@ const ItemSingle = props => {
           <DialogButtonSecondary onClick={closeDialog}>
             Cancelar
           </DialogButtonSecondary>
-          <DialogButtonPrimary onClick={handleDelete}>
+          <DialogButtonPrimary id="confirmButton" onClick={handleDelete}>
             Excluir
           </DialogButtonPrimary>
         </ButtonContainer>

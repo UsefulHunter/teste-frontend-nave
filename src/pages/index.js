@@ -60,21 +60,23 @@ const Login = () => {
         <Form onSubmit={handleSubmit}>
           <Label>E-mail</Label>
           <FormInput
+            id="username"
             value={email}
             onChange={handleEmail}
             type="text"
             placeholder="E-mail"
           />
-
           <Label>Senha</Label>
           <FormInput
+            id="password"
             value={password}
             onChange={handlePassword}
             type="password"
             placeholder="Senha"
           />
-
-          <FormButton type="submit">Entrar</FormButton>
+          <FormButton id="loginButton" type="submit">
+            Entrar
+          </FormButton>
         </Form>
       </LoginContainer>
     </Wrapper>

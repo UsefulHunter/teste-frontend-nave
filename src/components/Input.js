@@ -10,6 +10,7 @@ const Input = props => (
     type={props.type}
     disabled={props.disabled}
     required={true}
+    id={props.id}
   />
 )
 
