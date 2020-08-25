@@ -77,6 +77,7 @@ const AddNaver = () => {
                 onChange={event => setName(event.target.value)}
                 value={name}
                 placeholder="Nome"
+                required
               />
             </InputItem>
             <InputItem>
@@ -87,6 +88,7 @@ const AddNaver = () => {
                 onChange={event => setJobRole(event.target.value)}
                 value={jobRole}
                 placeholder="Cargo"
+                required
               />
             </InputItem>
           </InputRow>
@@ -99,6 +101,7 @@ const AddNaver = () => {
                 value={date}
                 onChange={event => setDate(event.target.value)}
                 placeholder="Idade"
+                required
               />
             </InputItem>
             <InputItem>
@@ -109,6 +112,7 @@ const AddNaver = () => {
                 value={admissionDate}
                 onChange={event => setAdmissionDate(event.target.value)}
                 placeholder="Tempo de empresa"
+                required
               />
             </InputItem>
           </InputRow>
@@ -121,6 +125,7 @@ const AddNaver = () => {
                 value={project}
                 onChange={event => setProject(event.target.value)}
                 placeholder="Projetos que participou"
+                required
               />
             </InputItem>
             <InputItem>
@@ -131,6 +136,7 @@ const AddNaver = () => {
                 value={url}
                 onChange={event => setUrl(event.target.value)}
                 placeholder="URL da foto do Naver"
+                required
               />
             </InputItem>
           </InputRow>
