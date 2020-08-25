@@ -19,7 +19,6 @@ const Feedback = forwardRef((props, ref) => {
   }
 
   const close = () => {
-    console.log(window.location)
     setDisplay(false)
     navigate("/Home/")
   }
