@@ -7,6 +7,19 @@ export const dateFormatter = date => {
   return dateFormatted
 }
 
+export const dateDeformatter = date => {
+  const dateToBeFormatted = new Date(date)
+  const day = dateToBeFormatted.getUTCDate()
+  const month = dateToBeFormatted.getMonth()
+  const year = dateToBeFormatted.getFullYear()
+  let dateFormatted = ""
+  dateFormatted = `${year}-${month + 1}-${day}`
+  if (month + 1 < 10) {
+    dateFormatted = `${year}-0${month + 1}-${day}`
+  }
+  return dateFormatted
+}
+
 export const getAge = date => {
   if (date === null) {
     return "Birthdate is Null"

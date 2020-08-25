@@ -6,7 +6,7 @@ import Label from "../../components/Label"
 import Input from "../../components/Input"
 import Feedback from "../../components/Feedback"
 import { navigate } from "gatsby"
-import { dateFormatter } from "../../utils/DateFormatter"
+import { dateFormatter, dateDeformatter } from "../../utils/DateFormatter"
 import {
   NaverContainer,
   Text,
@@ -39,8 +39,8 @@ const EditNaver = props => {
         let response = await api.get(`navers/${id}`)
         setName(response.data.name)
         setJobRole(response.data.job_role)
-        setDate(response.data.birthdate)
-        setAdmissionDate(response.data.admission_date)
+        setDate(dateDeformatter(response.data.birthdate))
+        setAdmissionDate(dateDeformatter(response.data.admission_date))
         setProject(response.data.project)
         setUrl(response.data.url)
       } catch (error) {
@@ -119,7 +119,6 @@ const EditNaver = props => {
                 type="date"
                 onChange={event => setDate(event.target.value)}
                 placeholder="Idade"
-                disabled
               />
             </InputItem>
             <InputItem>
@@ -130,7 +129,6 @@ const EditNaver = props => {
                 type="date"
                 onChange={event => setAdmissionDate(event.target.value)}
                 placeholder="Tempo de empresa"
-                disabled
               />
             </InputItem>
           </InputRow>
