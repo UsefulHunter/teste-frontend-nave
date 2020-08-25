@@ -19,8 +19,13 @@ const Feedback = forwardRef((props, ref) => {
   }
 
   const close = () => {
+    console.log(window.location)
     setDisplay(false)
-    navigate("/Home/")
+    if (window.location.pathname === "/Home") {
+      document.location.reload()
+    } else {
+      navigate("/Home/")
+    }
   }
 
   if (display) {
