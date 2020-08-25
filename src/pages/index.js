@@ -11,7 +11,7 @@ import {
   Label,
   FormInput,
   FormButton,
-} from "./styles"
+} from "../utils/styles"
 
 const Login = () => {
   const [email, setEmail] = useState("")

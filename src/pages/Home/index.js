@@ -3,7 +3,13 @@ import { navigate } from "gatsby"
 import api from "../../services/api"
 import Header from "../../components/Header"
 import ItemSingle from "../../components/Item"
-import { HomeContainer, TitleWrapper, Title, Button, ItemArea } from "./styles"
+import {
+  HomeContainer,
+  TitleWrapper,
+  Title,
+  Button,
+  ItemArea,
+} from "../../utils/Home.styles"
 const Home = () => {
   const [items, setItems] = useState([])
 

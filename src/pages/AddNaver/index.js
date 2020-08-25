@@ -18,7 +18,7 @@ import {
   InputItem,
   FormButton,
   Icon,
-} from "./styles"
+} from "../../utils/AddNaver.styles"
 
 const AddNaver = () => {
   const [name, setName] = useState("")
