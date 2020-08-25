@@ -96,7 +96,6 @@ const EditNaver = props => {
                 onChange={event => setName(event.target.value)}
                 value={name}
                 placeholder="Nome"
-                required
               />
             </InputItem>
             <InputItem>
@@ -106,7 +105,6 @@ const EditNaver = props => {
                 onChange={event => setJobRole(event.target.value)}
                 value={jobRole}
                 placeholder="Cargo"
-                required
               />
             </InputItem>
           </InputRow>
