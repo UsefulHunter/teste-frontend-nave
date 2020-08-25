@@ -38,8 +38,8 @@ const AddNaver = () => {
     try {
       await api.post("navers", {
         job_role: jobRole,
-        admission_date: admissionDate,
-        birthdate: date,
+        admission_date: dateFormatter(admissionDate),
+        birthdate: dateFormatter(date),
         project: project,
         name: name,
         url: url,
@@ -97,7 +97,7 @@ const AddNaver = () => {
                 name="Date"
                 type="date"
                 value={date}
-                onChange={event => setDate(dateFormatter(event.target.value))}
+                onChange={event => setDate(event.target.value)}
                 placeholder="Idade"
               />
             </InputItem>
@@ -107,9 +107,7 @@ const AddNaver = () => {
                 name="AdmissionDate"
                 type="date"
                 value={admissionDate}
-                onChange={event =>
-                  setAdmissionDate(dateFormatter(event.target.value))
-                }
+                onChange={event => setAdmissionDate(event.target.value)}
                 placeholder="Tempo de empresa"
               />
             </InputItem>
